@@ -1,5 +1,5 @@
 #include<stdio.h>
-
+// ссыль на гит: https://github.com/yolmane/HomevorkCpp/tree/Lesson2
 main()
 {
 	int a,b;
