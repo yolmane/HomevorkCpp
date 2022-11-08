@@ -1,18 +1,50 @@
 #include<stdio.h>
-//ссыль на гит  https://github.com/yolmane/HomevorkCpp/tree/Lesson3
+//СЃСЃС‹Р»СЊ РЅР° РіРёС‚  https://github.com/yolmane/HomevorkCpp/tree/Lesson4
 main()
 {
-	int login,password;
-	printf("login:");
-	scanf("%i",&login);
-	printf("password:");
-	scanf("%i",&password);
-	if(((login==8977411)&&(password==1234))||((login==8916411)&&(password==3214))||(login==8999411)&&(password==2134))
+	int day;
+	printf("Day? ");
+	scanf("%i",&day);
+	switch(day)
 	{
-		printf("OK");
+		case 1:
+			{
+				printf("Su");
+			}
+			break;
+		case 2:
+			{
+				printf("Mo");
+			}
+			break;
+		case 3:
+			{
+				printf("Tu");
+			}
+			break;
+		case 4:
+			{
+				printf("We");
+			}
+			break;
+		case 5:
+			{
+				printf("Th");
+			}
+			break;
+		case 6:
+			{
+				printf("Fr");
+			}
+			break;
+		case 7:
+			{
+				printf("Sa");
+			}
+			break;
+		default:
+			{
+				printf("Error");
+			}
 	}
-	else
-	{
-		printf("Error");	
-	}	
 }
