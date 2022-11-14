@@ -1,21 +1,13 @@
 #include<stdio.h>
-//ссыль на гит  https://github.com/yolmane/HomevorkCpp/tree/lesson3.5
+//ссыль на гит  https://github.com/yolmane/HomevorkCpp/tree/lesson3.6
 main()
 {
-	int a=0;
-	while (a<10)
+	for(int b=5;b<6;b++)
 	{
-		printf("hello\n");
-		a=a+1;
-	}
-	
-	int i=0;
-	while (i<15)
-	{
-		i=i+1;
-		if(i%2==1)
+		for(int a=1;a<=10;a++)
 		{
-			printf("%i ",i);
+			printf("%i*%i=%i\n",b,a,b*a);
 		}
+		printf("\n\n");
 	}
-}
+}	
