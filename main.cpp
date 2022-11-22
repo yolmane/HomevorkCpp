@@ -1,13 +1,14 @@
 #include<stdio.h>
-//ссыль на гит  https://github.com/yolmane/HomevorkCpp/tree/lesson3.6
-main()
-{
-	for(int b=5;b<6;b++)
+//ссыль на гит  https://github.com/yolmane/HomevorkCpp/tree/lesson3.7
+main() 
+{	
+	int i=1;
+	int sum=0;
+	for(;i<100;i=i+1)
 	{
-		for(int a=1;a<=10;a++)
-		{
-			printf("%i*%i=%i\n",b,a,b*a);
-		}
-		printf("\n\n");
+		sum=sum+i;
+		printf("%i+",i);
 	}
-}	
+	sum=sum+i;
+	printf("%i=%i",i,sum);
+}
