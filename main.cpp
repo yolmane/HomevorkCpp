@@ -1,14 +1,28 @@
 #include<stdio.h>
-//ссыль на гит  https://github.com/yolmane/HomevorkCpp/tree/lesson3.7
-main() 
-{	
-	int i=1;
-	int sum=0;
-	for(;i<100;i=i+1)
-	{
-		sum=sum+i;
-		printf("%i+",i);
-	}
-	sum=sum+i;
-	printf("%i=%i",i,sum);
+main()
+{
+    int n, numb, min, max, sum;    
+    printf("vedite kol-vo chisel virabotki: ");
+    scanf("%i",&n);
+    printf("vvedite pervoe chislo: ");
+    scanf("%i", &numb);
+    min = numb;
+    max = numb;
+    sum = numb;
+    for(int i = 0; i < n-1; i++)
+    {
+        printf("vvedite sleduyouwee chislo: ");
+        scanf("%i", &numb);
+        if (min > numb)
+        {
+            min = numb;
+        }
+        if (max < numb)
+        {
+            max = numb;
+        }
+        sum = sum + numb;
+    }    
+    printf("min=%i\nmax=%i\nsum=%i\navg=%f\n", min, max, sum, ((float)sum / (float)n));
+
 }
