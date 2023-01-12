@@ -1,46 +1,39 @@
 #include<stdio.h>
-//ссыль на гит  https://github.com/yolmane/HomevorkCpp/tree/Lesson4.3/main.cpp
+//ссыль на гит  https://github.com/yolmane/HomevorkCpp/tree/Lesson4.4/main.cpp
 main()
 {
     int mas[100];
     int n;
     
-    printf("kol el");
+    printf("el mas ");
     scanf("%i",&n);
     
     for(int i=0;i<n;i++)
     {
-    	scanf("%4i",&mas[i]);
+    	scanf("%i",&mas[i]);
 	}
+	
+	int min,max;
+	min=max=mas[0];
+	
+	int sum=0;
 	
 	for(int i=0;i<n;i++)
-    {
-    	printf("%4i",mas[i]);
-	}
-	printf("\n");
-	
-	bool fl=true;
-	
-	int ch=0;
-	while(fl)
 	{
-		fl=false;
-		for(int i=0;i<n-1;i++)
+		if(mas[i]>max)
 		{
-			if(mas[i]>mas[i+1])
-			{
-				int z=mas[i];
-				mas[i]=mas[i+1];
-				mas[i+1]=z;
-				fl=true;
-			}
+			max=mas[i];
 		}
-		ch++;
+		
+		if(mas[i]<min)
+		{
+			min=mas[i];
+		}
+		
+		sum+=mas[i];
 	}
 	
-	for(int i=0;i<n;i++)
-    {
-    	printf("%4i",mas[i]);
-	}
-	printf("\n %i",ch);
-} 
+	float sr=(float)sum/(float)n;
+	
+	printf("Min=%i Max=%i Sum=%i Sr=%f",min,max,sum,sr);
+}
