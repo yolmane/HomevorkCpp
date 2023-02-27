@@ -1,11 +1,10 @@
 #include <stdio.h>
 #include <string.h>
-//  https://github.com/yolmane/HomevorkCpp/tree/Lesson6/3.cpp
+//  https://github.com/yolmane/HomevorkCpp/tree/Lesson6.3/3.cpp
 main()
 {
 	char str[100];
 	gets(str);
-	
 	int i;
 	printf("sumb=");
 	scanf("%i",&i);
