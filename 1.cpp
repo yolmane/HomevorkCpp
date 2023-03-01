@@ -1,29 +1,41 @@
-#include <stdio.h>
-#include <string.h>
-//  https://github.com/yolmane/HomevorkCpp/tree/Lesson6.4/1.cpp
-main()
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+#include<dos.h>
+#include<windows.h>
+//  https://github.com/yolmane/HomevorkCpp/tree/Lesson7.2/1.cpp
+
+void array_completion(int mas[], int a)
 {
-    char str[100];
-    int q = 0;
-    while ((q == 0) || (q > 99) )
-    {    
-        printf("Введите строку латиницей\n");
-        gets(str);
-        q  = strlen(str);
+    for(int i=0; i<a; i++)
+    {        
+        mas[i] = rand();
     }
-    for (int j=0;j<q;j++)
+    printf("\nЗаполненый массив \n");
+    for(int i=0; i<a; i++)
     {
-        str[j]=str[j+1];
+        printf("%3i  ",mas[i]);
     }
-    printf("\nСтрока после удаления первого элемента: \n");
-    puts(str);
-    char strmir[100];
-    for(int j=strlen(str);j>0;j--)
+}
+int main()
+{
+    srand(time(NULL));
+    int mas1[100];
+    int mas2[100];
+    int a = 0;
+    int b = 0;
+    while ((a < 1) || (a > 100))
     {
-        strmir[strlen(str)-j] = str[j-1];       
+        printf("Ведите колличество элементов первого массива от 1 до 100 включительно ");
+        scanf("%i",&a);
     }
-    strmir[strlen(str)] = str[strlen(str)];
-    printf("\nСтрока после : \n");
-    puts(strmir);
-    // puts(str);
+    while ((b < 1) || (b > 100))
+    {
+        printf("Ведите колличество элементов второго массива от 1 до 100 включительно ");
+        scanf("%i",&b);
+    }
+    array_completion(mas1, a);
+    array_completion(mas2, b);
+
+    return 1;
 }
