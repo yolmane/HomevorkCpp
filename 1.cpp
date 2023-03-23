@@ -1,41 +1,65 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<time.h>
-#include<dos.h>
-#include<windows.h>
-//  https://github.com/yolmane/HomevorkCpp/tree/Lesson7.2/1.cpp
+#include <stdio.h>
 
-void array_completion(int mas[], int a)
-{
-    for(int i=0; i<a; i++)
-    {        
-        mas[i] = rand();
+//  https://github.com/yolmane/HomevorkCpp/edit/Lesson7.3/1.cpp
+
+// Функция, возвращающая искомое значение
+bool is_square(int n) {
+    int i = 1;
+    while (i * i < n) {
+        i++;
     }
-    printf("\nЗаполненый массив \n");
-    for(int i=0; i<a; i++)
-    {
-        printf("%3i  ",mas[i]);
-    }
+    return i * i == n;
 }
-int main()
-{
-    srand(time(NULL));
-    int mas1[100];
-    int mas2[100];
-    int a = 0;
-    int b = 0;
-    while ((a < 1) || (a > 100))
-    {
-        printf("Ведите колличество элементов первого массива от 1 до 100 включительно ");
-        scanf("%i",&a);
-    }
-    while ((b < 1) || (b > 100))
-    {
-        printf("Ведите колличество элементов второго массива от 1 до 100 включительно ");
-        scanf("%i",&b);
-    }
-    array_completion(mas1, a);
-    array_completion(mas2, b);
 
-    return 1;
+// Функция, возвращающая искомое значение через дополнительный аргумент - указатель
+void is_square(int n, bool* result) {
+    *result = is_square(n);
+}
+
+// Функция, возвращающая искомое значение через дополнительный аргумент - ссылку
+void is_square(int n, bool& result) {
+    result = is_square(n);
+}
+
+
+int main() {
+    int a, b, c;
+    printf("Enter three natural numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+    printf("\n");
+
+    bool a_is_square, b_is_square, c_is_square;
+
+    // Вызов первой функции
+    a_is_square = is_square(a);
+    b_is_square = is_square(b);
+    c_is_square = is_square(c);
+
+    printf("%d is%s a square of any other integer.\n", a, a_is_square ? "" : " not");
+    printf("%d is%s a square of any other integer.\n", b, b_is_square ? "" : " not");
+    printf("%d is%s a square of any other integer.\n", c, c_is_square ? "" : " not");
+    printf("\n");
+    
+
+    // Вызов второй функции
+    is_square(a, &a_is_square);
+    is_square(b, &b_is_square);
+    is_square(c, &c_is_square);
+
+    printf("%d is%s a square of any other integer.\n", a, a_is_square ? "" : " not");
+    printf("%d is%s a square of any other integer.\n", b, b_is_square ? "" : " not");
+    printf("%d is%s a square of any other integer.\n", c, c_is_square ? "" : " not");
+    printf("\n");
+
+    // Вызов третьей функции
+    is_square(a, c_is_square);
+    is_square(b, c_is_square);
+    is_square(c, c_is_square);
+
+    printf("%d is%s a square of any other integer.\n", a, c_is_square ? "" : " not");
+    printf("%d is%s a square of any other integer.\n", b, c_is_square ? "" : " not");
+    printf("%d is%s a square of any other integer.\n", c, c_is_square ? "" : " not");
+    printf("\n");
+
+    return 0;
 }
