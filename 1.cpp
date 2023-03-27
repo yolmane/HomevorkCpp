@@ -1,65 +1,74 @@
 #include <stdio.h>
 
-//  https://github.com/yolmane/HomevorkCpp/edit/Lesson7.3/1.cpp
+//  https://github.com/yolmane/HomevorkCpp/edit/Lesson7.4/1.cpp
 
-// Функция, возвращающая искомое значение
-bool is_square(int n) {
-    int i = 1;
-    while (i * i < n) {
-        i++;
+// Функция, которая изменяет первый и последний символ в строке на заданный символ
+char* changeFirstLastChar(char *str, char ch) {
+    int len = 0;
+
+    // вычисляем длину строки
+    while(str[len] != '\0') {
+        len++;
     }
-    return i * i == n;
+
+    // если длина строки больше 1, изменяем первый и последний символ
+    if (len > 1) {
+        str[0] = ch;
+        str[len - 1] = ch;
+    }
+
+    // возвращаем указатель на измененную строку
+    return str;
 }
 
-// Функция, возвращающая искомое значение через дополнительный аргумент - указатель
-void is_square(int n, bool* result) {
-    *result = is_square(n);
-}
+// Функция, которая удаляет начальные и конечные пробелы в строке
+char* trimString(char *str) {
+    int len = 0;
 
-// Функция, возвращающая искомое значение через дополнительный аргумент - ссылку
-void is_square(int n, bool& result) {
-    result = is_square(n);
-}
+    // вычисляем длину строки
+    while(str[len] != '\0') {
+        len++;
+    }
 
+    // удаляем начальные пробелы
+    while (str[0] == ' ' && len > 0) {
+        for (int i = 0; i < len; i++) {
+            str[i] = str[i+1];
+        }
+        len--;
+    }
+
+    // удаляем конечные пробелы
+    while (str[len-1] == ' ' && len > 0) {
+        str[len-1] = '\0';
+        len--;
+    }
+
+    // возвращаем указатель на измененную строку
+    return str;
+}
 
 int main() {
-    int a, b, c;
-    printf("Enter three natural numbers: ");
-    scanf("%d %d %d", &a, &b, &c);
+    char str[100];
+    char ch;
+
+    // вводим строку и символ
+    printf("Enter a string: ");
+    fgets(str, 100, stdin);
+    printf("Enter a character: ");
+    scanf("%c", &ch);
+    getchar(); // очистка буфера ввода
     printf("\n");
 
-    bool a_is_square, b_is_square, c_is_square;
+    // изменяем первый и последний символ строки и выводим результат
+    char *result1 = changeFirstLastChar(str, ch);
+    printf("Original string: %s\nModified string: %s\n", str, result1);
 
-    // Вызов первой функции
-    a_is_square = is_square(a);
-    b_is_square = is_square(b);
-    c_is_square = is_square(c);
-
-    printf("%d is%s a square of any other integer.\n", a, a_is_square ? "" : " not");
-    printf("%d is%s a square of any other integer.\n", b, b_is_square ? "" : " not");
-    printf("%d is%s a square of any other integer.\n", c, c_is_square ? "" : " not");
-    printf("\n");
-    
-
-    // Вызов второй функции
-    is_square(a, &a_is_square);
-    is_square(b, &b_is_square);
-    is_square(c, &c_is_square);
-
-    printf("%d is%s a square of any other integer.\n", a, a_is_square ? "" : " not");
-    printf("%d is%s a square of any other integer.\n", b, b_is_square ? "" : " not");
-    printf("%d is%s a square of any other integer.\n", c, c_is_square ? "" : " not");
-    printf("\n");
-
-    // Вызов третьей функции
-    is_square(a, c_is_square);
-    is_square(b, c_is_square);
-    is_square(c, c_is_square);
-
-    printf("%d is%s a square of any other integer.\n", a, c_is_square ? "" : " not");
-    printf("%d is%s a square of any other integer.\n", b, c_is_square ? "" : " not");
-    printf("%d is%s a square of any other integer.\n", c, c_is_square ? "" : " not");
-    printf("\n");
+    // вводим новую строку и удаляем начальные и конечные пробелы
+    printf("Enter a string: ");
+    fgets(str, 100, stdin);
+    char *result2 = trimString(str);
+    printf("Original string: %s\nTrimmed string: %s\n", str, result2);
 
     return 0;
 }
