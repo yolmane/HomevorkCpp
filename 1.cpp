@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-//  https://github.com/yolmane/HomevorkCpp/edit/Lesson7.4/1.cpp
+//  https://github.com/yolmane/HomevorkCpp/blob/Lesson7.4/1.cpp
 
 // Функция, которая изменяет первый и последний символ в строке на заданный символ
 char* changeFirstLastChar(char *str, char ch) {
